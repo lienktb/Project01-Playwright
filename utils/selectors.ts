@@ -1,6 +1,10 @@
 export const selectors = {
     login: {
-
+        username: "#username-92",
+        password: "#user_password-92",
+        loginButton: "#um-submit-btn",
+        usernameError: "#um-error-for-username-92",
+        passwordError: "#um-error-for-user_password-92"
     },
     register: {
         username: "#user_login-91",
