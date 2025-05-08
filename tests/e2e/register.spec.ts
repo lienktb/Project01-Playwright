@@ -1,15 +1,31 @@
 import test, { expect } from "@playwright/test";
 import { RegisterPage } from "../../pages/RegisterPage";
 import { selectors } from '../../utils/selectors';
+import { faker } from '@faker-js/faker';
 
 test('Register success', async ({ page }) => {
     const registerPage = new RegisterPage(page);
 
     await registerPage.navigate("https://ovcharski.com/shop/register/");
 
-    await registerPage.register("tester0002", "tester", "001", "tester096@gmail.com", "Tester123456", "Tester123456", "Male", "06 May 1995", "Albania", "0987678555");
+    const fakeUser = {
+        username: faker.internet.userName(),
+        firstName: faker.person.firstName(),
+        lastName: faker.person.lastName(),
+        email: faker.internet.email(),
+        password: 'Test123456',
+        confirmPassword: '', // sẽ gán bằng password ở dưới
+        gender: faker.helpers.arrayElement(['Male', 'Female']),
+        birthday: faker.date.birthdate({ min: 18, max: 65, mode: 'age' }).toISOString().split('T')[0],
+        country: "Albania",
+        phoneNumber: "0987678555",
+    };
+    
+    fakeUser.confirmPassword = fakeUser.password;
 
-    await registerPage.verifyText("h1.entry-title", "tester 001");
+    await registerPage.register(fakeUser.username, fakeUser.firstName, fakeUser.lastName, fakeUser.email, fakeUser.password, fakeUser.confirmPassword, fakeUser.gender, fakeUser.birthday, fakeUser.country, fakeUser.phoneNumber);
+
+    await registerPage.verifyText("h1.entry-title", `${fakeUser.firstName} ${fakeUser.lastName}`);
 
     await expect(page).toHaveTitle("User – Automation Demo Site");
 })
