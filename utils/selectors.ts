@@ -24,5 +24,12 @@ export const selectors = {
         passwordError: "#um-error-for-user_password-91",
         confirmPasswordError: '#um-error-for-confirm_user_password-91',
         genderError: "#um-error-for-gender"
+    },
+    homePage: {
+        logoLink: ".custom-logo-link",
+        logoImage: ".custom-logo",
+        welcomeText: "text=Welcome to the store",
+        footerText: ".site-info",
+        navMenuButton: "#site-navigation-menu-toggle"
     }
 }

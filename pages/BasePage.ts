@@ -24,7 +24,48 @@ export class BasePage {
         }
     }
 
+    async verifyTextWithOptions(
+        locator: string, 
+        expectedText: string,
+        options: {
+            exact?: boolean;
+            normalizeWhitespace?: boolean;
+            timeout?: number;
+        } = {},
+    ) {
+        const { exact = false, normalizeWhitespace = true, timeout = 5000 } = options;
+        if (normalizeWhitespace) {
+            await expect(this.page.locator(locator)).toHaveText(new RegExp(expectedText.replace(/\s+/g, '\\s+')), {
+                timeout,
+            });
+        } else if (exact) {
+            await expect(this.page.locator(locator)).toHaveText(expectedText, { timeout });
+        } else {
+            await expect(this.page.locator(locator)).toContainText(expectedText, { timeout });
+        }
+    }
+
     async verifyElementVisible(locator: string) {
         await expect(this.page.locator(locator)).toBeVisible();
+    }
+
+    async captureScreenshot(screenshotName: string, fullPage: boolean = false) {
+        const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+
+        await this.page.screenshot({
+            path: `screenshots/${screenshotName}-${timestamp}.png`,
+            fullPage
+        })
+    }
+
+    async captureFailureScreenShot(screenshotName: string, testInfo: any) {
+        if (testInfo.status !== testInfo.expectedStatus) {
+            const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+
+            await this.page.screenshot({
+                path: `screenshots/FAIL-${screenshotName}-${timestamp}.png`,
+                fullPage: true,
+            })
+        }
     }
 }
