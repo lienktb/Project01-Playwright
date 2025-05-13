@@ -41,7 +41,7 @@ export class ProductPage extends BasePage {
         await this.verifyElementVisible(saleBadgeSelector);
     }
 
-    async clickAddToCartButton(productId: string) {
+    async clickAddToCartButtonCardProduct(productId: string) {
         const addToCartButton = `a[href="?add-to-cart=${productId}"]`;
 
         // mô phỏng hành vi click giống người dùng thật nhất
@@ -53,13 +53,37 @@ export class ProductPage extends BasePage {
         }, addToCartButton);
     }
 
+    async clickAddToCartButtonProductPage() {
+        const addToCartButton = ".single_add_to_cart_button";
+        await this.clickElement(addToCartButton);
+    }
+
+    async clickStickyAddToCart() {
+        const addToCartButton = ".single_add_to_cart_button";
+        await this.clickElement(addToCartButton);
+    }
+
     async verifyViewCartButton(productId: string) {
         const viewCartButton = `.post-${ productId } .added_to_cart`;
         await this.verifyElementVisible(viewCartButton);
     }
 
-    async verifyCartHeader() {
+    async verifyCartHeader(number: string) {
         const cartCount = this.page.locator("#site-header-cart .count");
-        await expect(cartCount).toHaveText("1 item");
+        if (parseInt(number) > 2) {
+            await expect(cartCount).toHaveText(`${number} items`);
+        } else {
+            await expect(cartCount).toHaveText(`${number} item`);
+        }
+    }
+
+    async fillQuantity(number: string) {
+        this.fillLocator(`.input-text`, number);
+    }
+
+    async verifyQuantityInvalid() {
+        const message = await this.page.$eval('.input-text', input => (input as HTMLInputElement).validationMessage);
+
+        expect(message).toContain("Value must be greater than or equal to 1.");
     }
 }

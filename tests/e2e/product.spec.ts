@@ -9,9 +9,44 @@ test.describe("Product Page", () => {
     })
 
     test("Add to cart from card product", async ({ page }) => {
-        // await productPage.clickProductLink("Jenkins Beekeeper");
-        await productPage.clickAddToCartButton("120");
+        await productPage.clickAddToCartButtonCardProduct("120");
         await productPage.verifyViewCartButton("120");
-        await productPage.verifyCartHeader();
+        await productPage.verifyCartHeader("1");
+    })
+
+    test("Add to cart from product page", async ({ page }) => {
+        await productPage.clickProductLink("Jenkins Beekeeper");
+        await expect(page).toHaveTitle("Jenkins Beekeeper – Automation Demo Site");
+
+        await productPage.clickAddToCartButtonProductPage();
+        await productPage.verifyCartHeader("1");
+    })
+
+    test("Sticky add to cart", async ({ page }) => {
+        await productPage.clickProductLink("Jenkins Beekeeper");
+        await expect(page).toHaveTitle("Jenkins Beekeeper – Automation Demo Site");
+
+        await productPage.clickStickyAddToCart();
+        await productPage.verifyCartHeader("1");
+    })
+
+    test("Add to cart with quantity = 9", async ({ page }) => {
+        await productPage.clickProductLink("Jenkins Beekeeper");
+        await expect(page).toHaveTitle("Jenkins Beekeeper – Automation Demo Site");
+
+        // input quantity = 9
+        await productPage.fillQuantity("9");
+        await productPage.clickAddToCartButtonProductPage();
+        await productPage.verifyCartHeader("9");
+    })
+
+    test("Add to cart with quantity = 0", async ({ page }) => {
+        await productPage.clickProductLink("Jenkins Beekeeper");
+        await expect(page).toHaveTitle("Jenkins Beekeeper – Automation Demo Site");
+
+        // input quantity = 9
+        await productPage.fillQuantity("0");
+        await productPage.clickAddToCartButtonProductPage();
+        await productPage.verifyQuantityInvalid();
     })
 })
