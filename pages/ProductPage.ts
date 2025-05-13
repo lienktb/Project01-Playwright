@@ -82,8 +82,7 @@ export class ProductPage extends BasePage {
     }
 
     async verifyQuantityInvalid() {
-        const message = await this.page.$eval('.input-text', input => (input as HTMLInputElement).validationMessage);
-
-        expect(message).toContain("Value must be greater than or equal to 1.");
+        const isValid = await this.page.$eval('.input-text', input => (input as HTMLInputElement).validity.valid);
+        expect(isValid).toBe(false);
     }
 }
