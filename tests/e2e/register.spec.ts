@@ -9,7 +9,7 @@ test('Register success', async ({ page }) => {
     await registerPage.navigate("https://ovcharski.com/shop/register/");
 
     const fakeUser = {
-        username: faker.internet.userName(),
+        username: faker.internet.username(),
         firstName: faker.person.firstName(),
         lastName: faker.person.lastName(),
         email: faker.internet.email(),

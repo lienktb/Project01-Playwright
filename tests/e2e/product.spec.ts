@@ -46,6 +46,7 @@ test.describe("Product Page", () => {
 
         // input quantity = 9
         await productPage.fillQuantity("0");
+
         await productPage.clickAddToCartButtonProductPage();
         await productPage.verifyQuantityInvalid();
     })

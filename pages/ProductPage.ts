@@ -37,7 +37,7 @@ export class ProductPage extends BasePage {
     }
 
     async verifySaleBadge(productId: string) {
-        const saleBadgeSelector = `#product-${productId} .onsale:has-text("Sale!")`;
+        const saleBadgeSelector = `#product-${productId} > .onsale:has-text("Sale!")`;
         await this.verifyElementVisible(saleBadgeSelector);
     }
 
@@ -78,7 +78,10 @@ export class ProductPage extends BasePage {
     }
 
     async fillQuantity(number: string) {
-        this.fillLocator(`.input-text`, number);
+        await this.page.waitForSelector('.input-text', { state: 'visible' });
+
+        await this.fillLocator(`.input-text`, number);
+        await this.page.locator('.input-text').blur();
     }
 
     async verifyQuantityInvalid() {
