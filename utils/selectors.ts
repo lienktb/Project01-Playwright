@@ -29,7 +29,22 @@ export const selectors = {
         logoLink: ".custom-logo-link",
         logoImage: ".custom-logo",
         welcomeText: "text=Welcome to the store",
-        footerText: ".site-info",
-        navMenuButton: "#site-navigation-menu-toggle"
+        footerText: ".site-info"
+    },
+    header: {
+        headerContainer: "header",
+        mainMenu: "#menu-main-menu",
+        logoLink: ".custom-logo-link",
+        logoImage: ".custom-logo",
+        headerCart: "#site-header-cart",
+        miniCart: ".widget_shopping_cart",
+        cartList: ".cart_list",
+        miniCartItem: ".mini_cart_item",
+        searchInput: 'header input[type="search"]',
+        messageCartEmpty: '.woocommerce-mini-cart__empty-message',
+        messageNoFoundProduct: '.woocommerce-no-products-found',
+        productItem: '.products .product',
+        navMenuButton: "#site-navigation-menu-toggle",
+        mobileMenu: '#site-navigation .menu'
     }
 }

@@ -12,7 +12,7 @@ test.describe("Iphone X viewport", () => {
         await homePage.verifyLogo();
         await homePage.verifyWelcomeText("Welcome to the store");
         await homePage.verifyTextFooter("© Automation Demo Site 2025 Built with WooCommerce");
-        await homePage.verifyElementVisible(selectors.homePage.navMenuButton);
+        await homePage.verifyElementVisible(selectors.header.navMenuButton);
 
         await homePage.captureHomePageScreenshot('homepage');
         await homePage.captureFullPageScreenshot('homepage');

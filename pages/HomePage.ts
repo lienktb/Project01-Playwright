@@ -8,8 +8,8 @@ export class HomePage extends BasePage {
     }
 
     async verifyLogo() {
-        await this.verifyElementVisible(selectors.homePage.logoImage);
-        await expect(this.page.locator(selectors.homePage.logoLink)).toHaveAttribute("href", "https://ovcharski.com/shop/");
+        await this.verifyElementVisible(selectors.header.logoImage);
+        await expect(this.page.locator(selectors.header.logoLink)).toHaveAttribute("href", "https://ovcharski.com/shop/");
     }
 
     async verifyWelcomeText(expectedText: string) {
