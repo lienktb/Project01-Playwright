@@ -17,13 +17,13 @@ export class CartPage extends BasePage {
     }
 
     async verifyCartPage() {
-        await expect(this.page).toHaveTitle("Cart – Automation Demo Site");
+        await expect(this.page).toHaveTitle("Cart – Automation Demo Site", { timeout: 5000 });
         await this.verifyText(".entry-title", "Cart"); 
+        await this.page.waitForSelector('.cart_item', { timeout: 5000 });
     }
 
     async goToCartPage() {
         await this.clickIconCartHeader();
-        await this.page.waitForTimeout(1000);
         await this.verifyCartPage();
     }
 

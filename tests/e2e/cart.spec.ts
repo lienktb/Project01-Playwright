@@ -6,7 +6,7 @@ import { addProductToCart } from "../../utils/cartHelpers";
 test("Check cart  item", async ({ page }) => {
     const cartPage = new CartPage(page);
 
-    addProductToCart(page, "https://ovcharski.com/shop/product/jenkins-beekeeper/", "Jenkins Beekeeper – Automation Demo Site")
+    await addProductToCart(page, "https://ovcharski.com/shop/product/jenkins-beekeeper/", "Jenkins Beekeeper – Automation Demo Site")
 
     await cartPage.goToCartPage();
 
@@ -26,7 +26,7 @@ test("Update cart item", async ({ page }) => {
     await cartPage.fillQuantity(productUpdate.name, productUpdate.quantity);
     await cartPage.clickUpdateCartButton();
     
-    await page.waitForTimeout(5000);
+    await page.waitForSelector('.entry-content .blockOverlay', { state: 'hidden', timeout: 10000 });
     await cartPage.verifyUpdateCart(productUpdate.name);
 })
 
@@ -42,7 +42,7 @@ test("Update cart item quantity = 0", async ({ page }) => {
     await cartPage.fillQuantity(productUpdate.name, productUpdate.quantity);
     await cartPage.clickUpdateCartButton();
     
-    await page.waitForTimeout(5000);
+    await page.waitForSelector('.entry-content .blockOverlay', { state: 'hidden', timeout: 10000 });
 
     await cartPage.verifyCartItemDeleted(productUpdate.name);
 })
@@ -57,7 +57,7 @@ test("Delete cart item", async ({ page }) => {
     
     await cartPage.clickDeleteItem("Jenkins Beekeeper");
 
-    await page.waitForTimeout(5000);
+    await page.waitForSelector('.entry-content .blockOverlay', { state: 'hidden', timeout: 10000 });
     await cartPage.verifyMessageRemove("Jenkins Beekeeper");
     await cartPage.verifyCartEmpty();
 })
