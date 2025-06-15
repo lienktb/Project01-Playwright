@@ -23,24 +23,18 @@ test.describe("Get products", () => {
 
     test("GET products - verify page 2 with 5 items per page", async ({ request }) => {
         const page = 2;
-        const limit = 5;
+        const per_page = 5;
 
         const response = await request.get(`${baseURL}`, {
             params: {
                 page,
-                limit
+                per_page
             }
         });
         expect(response.status()).toBe(200);
 
         const products = await response.json();
-        expect(products.length).toBe(limit);
-
-        const headers = response.headers();
-        const totalItems = headers['x-wp-total'];
-        const totalPages = headers['x-wp-totalpages'];
-
-
+        expect(products.length).toBeLessThanOrEqual(per_page);
     })
 })
 

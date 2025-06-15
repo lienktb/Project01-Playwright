@@ -2,7 +2,7 @@
   "cookies": [
     {
       "name": "wordpress_sec_a12b40197616d6b04760505e9da1c034",
-      "value": "tester02%7C1748018206%7C6L2vSh6MWcuPSxK0eX8yDlaEKJP4K6a52zojFN4SS5E%7C4da537de9a123868f7ca0e27abc98c20523558b3533942d77a96d2632b17ab64",
+      "value": "tester02%7C1750178928%7C9fpvSYP4cL3aa5OO6gRPxkU4CIGfU3bUMpheD5HQBq5%7C654fef4803c724761854177bb4276b89837667769e80aa8fde7989512491ec21",
       "domain": "ovcharski.com",
       "path": "/shop/wp-content/plugins",
       "expires": -1,
@@ -12,7 +12,7 @@
     },
     {
       "name": "wordpress_sec_a12b40197616d6b04760505e9da1c034",
-      "value": "tester02%7C1748018206%7C6L2vSh6MWcuPSxK0eX8yDlaEKJP4K6a52zojFN4SS5E%7C4da537de9a123868f7ca0e27abc98c20523558b3533942d77a96d2632b17ab64",
+      "value": "tester02%7C1750178928%7C9fpvSYP4cL3aa5OO6gRPxkU4CIGfU3bUMpheD5HQBq5%7C654fef4803c724761854177bb4276b89837667769e80aa8fde7989512491ec21",
       "domain": "ovcharski.com",
       "path": "/shop/wp-admin",
       "expires": -1,
@@ -22,7 +22,7 @@
     },
     {
       "name": "wordpress_logged_in_a12b40197616d6b04760505e9da1c034",
-      "value": "tester02%7C1748018206%7C6L2vSh6MWcuPSxK0eX8yDlaEKJP4K6a52zojFN4SS5E%7Cea577576934cc40a7e7055d26a7fdbc262d3eee2967cf98f96782b198aeadeb4",
+      "value": "tester02%7C1750178928%7C9fpvSYP4cL3aa5OO6gRPxkU4CIGfU3bUMpheD5HQBq5%7C8c596913625000000ded6190ef2ee9d2faaf85b8c1accdcd0270299953e2ad4b",
       "domain": "ovcharski.com",
       "path": "/shop/",
       "expires": -1,
@@ -42,7 +42,7 @@
     },
     {
       "name": "sbjs_current_add",
-      "value": "fd%3D2025-05-21%2016%3A36%3A44%7C%7C%7Cep%3Dhttps%3A%2F%2Fovcharski.com%2Fshop%2Flogin%2F%7C%7C%7Crf%3D%28none%29",
+      "value": "fd%3D2025-06-15%2016%3A48%3A45%7C%7C%7Cep%3Dhttps%3A%2F%2Fovcharski.com%2Fshop%2Flogin%2F%7C%7C%7Crf%3D%28none%29",
       "domain": ".ovcharski.com",
       "path": "/",
       "expires": -1,
@@ -52,7 +52,7 @@
     },
     {
       "name": "sbjs_first_add",
-      "value": "fd%3D2025-05-21%2016%3A36%3A44%7C%7C%7Cep%3Dhttps%3A%2F%2Fovcharski.com%2Fshop%2Flogin%2F%7C%7C%7Crf%3D%28none%29",
+      "value": "fd%3D2025-06-15%2016%3A48%3A45%7C%7C%7Cep%3Dhttps%3A%2F%2Fovcharski.com%2Fshop%2Flogin%2F%7C%7C%7Crf%3D%28none%29",
       "domain": ".ovcharski.com",
       "path": "/",
       "expires": -1,
@@ -92,10 +92,10 @@
     },
     {
       "name": "_pk_id.10.e430",
-      "value": "1fe0859a2f0e3af4.1747845406.",
+      "value": "f80f2e01c2b2dff4.1750006127.",
       "domain": "ovcharski.com",
       "path": "/",
-      "expires": 1781800606,
+      "expires": 1783961327,
       "httpOnly": false,
       "secure": false,
       "sameSite": "Lax"
@@ -105,7 +105,7 @@
       "value": "1",
       "domain": "ovcharski.com",
       "path": "/",
-      "expires": 1747847207,
+      "expires": 1750007929,
       "httpOnly": false,
       "secure": false,
       "sameSite": "Lax"
@@ -115,7 +115,7 @@
       "value": "pgs%3D2%7C%7C%7Ccpg%3Dhttps%3A%2F%2Fovcharski.com%2Fshop%2Fuser%2Ftester02%2F",
       "domain": ".ovcharski.com",
       "path": "/",
-      "expires": 1747847207,
+      "expires": 1750007929,
       "httpOnly": false,
       "secure": false,
       "sameSite": "Lax"
